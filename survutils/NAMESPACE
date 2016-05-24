@@ -3,5 +3,6 @@
 S3method(mean,transpose)
 export(boostci)
 export(rsf)
+export(score)
 export(spc)
 export(survutils)

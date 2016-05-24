@@ -19,6 +19,8 @@ Depends:
     Hmisc,
     rms,
     gbm,
-	RegCox
+	  RegCox,
+    pseudo,
+	  MRCE
 License: GPL
 RoxygenNote: 5.0.1

@@ -5,12 +5,12 @@
 \title{Predict on survival data}
 \usage{
 survutils(filename, type, rhor = 1, rhoc = 1, qr = 2, qc = 2,
-  tol = 0.001, ntrees = 1000, nfolds = 5)
+  tol = 0.001, ntrees = 1000, nfolds = 5, numtimes = 0)
 }
 \arguments{
 \item{filename}{Path to survival data file. Data should have the features in the format (time, status and other feature columns)}
 
-\item{type}{Type of function to be applied. Values are {"RSF", "SUPERPC", "BOOSTCI" "TREC", "REC"}}
+\item{type}{Type of function to be applied. Values are {"RSF", "SUPERPC", "BOOSTCI", "SCORE", "TREC", "REC"}}
 
 \item{rhor}{Row regularization parameter. Default value is 1. Used only in type "TREC"}
 
@@ -25,6 +25,8 @@ survutils(filename, type, rhor = 1, rhoc = 1, qr = 2, qc = 2,
 \item{ntrees}{Number of trees for BOOSTCI model. Default is 1000.}
 
 \item{nfolds}{Number of folds for BOOSTCI cross validation. Default is 5}
+
+\item{numtimes}{Number of distinct times of events to be considered for SCORE. Computation gets slow with large values. If no value is specified all times are taken}
 }
 \description{
 Predict on survival data
