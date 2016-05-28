@@ -5,7 +5,8 @@
 \title{Predict on survival data}
 \usage{
 survutils(filename, type, rhor = 1, rhoc = 1, qr = 2, qc = 2,
-  tol = 0.001, ntrees = 1000, nfolds = 5, numtimes = 0)
+  tol = 0.001, ntrees = 1000, nfolds = 5, ntimes = 0,
+  optimizer = "GLMNET", nfeatures = 0)
 }
 \arguments{
 \item{filename}{Path to survival data file. Data should have the features in the format (time, status and other feature columns)}
@@ -26,7 +27,11 @@ survutils(filename, type, rhor = 1, rhoc = 1, qr = 2, qc = 2,
 
 \item{nfolds}{Number of folds for BOOSTCI cross validation. Default is 5}
 
-\item{numtimes}{Number of distinct times of events to be considered for SCORE. Computation gets slow with large values. If no value is specified all times are taken}
+\item{ntimes}{Number of distinct times of events to be considered for SCORE. Computation gets slow with large values. If no value is specified all times are taken}
+
+\item{optimizer}{Type of optimization to apply for SCORE. Values are {"GLMNET", "MRCE"}. Default is "GLMNET". "MRCE" cannot run for more than 1000 features.}
+
+\item{nfeatures}{Number of features for SCORE. If no value is specified all features are taken}
 }
 \description{
 Predict on survival data

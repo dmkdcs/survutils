@@ -21,6 +21,7 @@ Depends:
     gbm,
 	  RegCox,
     pseudo,
-	  MRCE
+	  MRCE,
+    glmnet
 License: GPL
 RoxygenNote: 5.0.1

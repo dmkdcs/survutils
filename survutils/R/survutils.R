@@ -8,10 +8,12 @@
 #' @param tol Convergence tolerance. Default value is 1e-3. Used only in type "TREC"
 #' @param ntrees Number of trees for BOOSTCI model. Default is 1000.
 #' @param nfolds Number of folds for BOOSTCI cross validation. Default is 5
-#' @param numtimes Number of distinct times of events to be considered for SCORE. Computation gets slow with large values. If no value is specified all times are taken
+#' @param ntimes Number of distinct times of events to be considered for SCORE. Computation gets slow with large values. If no value is specified all times are taken
+#' @param optimizer Type of optimization to apply for SCORE. Values are {"GLMNET", "MRCE"}. Default is "GLMNET". "MRCE" cannot run for more than 1000 features.
+#' @param nfeatures Number of features for SCORE. If no value is specified all features are taken
 #' @export
 
-survutils <- function(filename, type, rhor=1,rhoc=1, qr=2, qc=2, tol = 1e-03, ntrees=1000, nfolds=5, numtimes=0)
+survutils <- function(filename, type, rhor=1,rhoc=1, qr=2, qc=2, tol = 1e-03, ntrees=1000, nfolds=5, ntimes=0, optimizer="GLMNET", nfeatures=0)
 {
   if(type == "RSF")
    return(rsf(filename))
@@ -23,7 +25,7 @@ survutils <- function(filename, type, rhor=1,rhoc=1, qr=2, qc=2, tol = 1e-03, nt
     return(boostci(filename, ntrees, nfolds))
   
   else if(type == "SCORE")
-    return(score(filename, numtimes))
+    return(score(filename, ntimes, optimizer, nfeatures))
 
   else{
     
