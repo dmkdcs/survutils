@@ -5,4 +5,5 @@ filename = "synthetic1-survival.csv"
 
 res <- survutils(filename, "SCORE")
 #res <- survutils(filename, "SCORE", optimizer="MRCE")
+
 print(res)
