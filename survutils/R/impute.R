@@ -1,6 +1,6 @@
 #' @export
 
-mean.transpose = function(x,tol=1e-3)
+mean.transpose = function(x,tol = 1e-3)
 {
   n = nrow(x)
   p = ncol(x)

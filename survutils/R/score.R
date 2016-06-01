@@ -34,6 +34,7 @@ score <- function(filename, numtimes=0, optimizer="GLMNET", nfeatures=0)
   success <- 0
   if(optimizer == "MRCE")
   {
+  # Error handling in MRCE
   tryCatch(
 	{
 		mrcefit <- mrce(Y=multi_output_survival, X=features, lam1=1e-3, lam2=1e-3, method="single", cov.tol=0.1, tol.out=1e-10)

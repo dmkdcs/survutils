@@ -31,6 +31,7 @@ spc <- function(filename, nfolds=5)
     a <- superpc.train(datatrain,type="survival")
     fit <- superpc.predict(a,datatrain, datatest, threshold=1.0, n.components=1, prediction.type="continuous")
     
+	# Prediction and evaluation metrics
     event_prediction <- 1-fit$v.pred
     time <- test.time
     status <- test.censor

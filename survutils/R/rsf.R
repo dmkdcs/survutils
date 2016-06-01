@@ -15,7 +15,7 @@ rsf <- function(filename, nfolds=5){
   
   foldid <- coxsplit(data.train, nfolds)
   
-  # nfold cross validation creates n models
+  # N-fold cross validation creates n models
   error.rates <- sapply(c(1:nfolds), function(n){
     
     data.fold.train <- data.train[which(foldid!=n),]

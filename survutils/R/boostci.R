@@ -31,6 +31,7 @@ boostci <- function(filename, ntrees=1000, nfolds=5)
     
     best.iter <- gbm.perf(gbm1,method="cv")
     
+	# Prediction and evaluation metrics
     event_prediction <- predict.gbm(gbm1,data.test,best.iter, type="response")
     
     surv <- Surv(data.test$time, data.test$event)
